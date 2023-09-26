@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300&family=Open+Sans:wght@300&family=Poppins:wght@100;200;300;400;500&family=Roboto:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <link rel="stylesheet" href="../../../Styling/index.css">
+    <link rel="stylesheet" href="../../../Styling/updateProfile.css">
+    <link rel="stylesheet" href="../../../Styling/Form.css">
+    <link rel="stylesheet" href="../AdminStyling/Dashboard.css">
+
+
+    <title>Add Profile</title>
+</head>
+
+<body>
+    <main class="main-container">
+        <header class="header">
+            <div class="logo">
+                <a href="./Dashboard.html">Admin Dash<span>Board</span></a>
+            </div>
+            <div class="links">
+                <ul>
+                    <li>
+                        <a href="../AdminPages/Users.html">Users</a>
+                        <a href="../AdminPages/Projects.html">Projects</a>
+                    </li>
+                </ul>
+            </div>
+        </header>
+        <h1 class="updateHeading">Add New User Profile</h1>
+        <form class="updater">
+           <div class="rows">
+            <div class="row">
+                <label class="label" for="Name">Full Name:</label>
+                <input type="text" id="Name" placeholder="Enter Your Full Name">
+            </div>
+
+            <div class="row">
+                <label class="label" for="email">Email:</label>
+                <input type="text" id="email" placeholder="Enter Your Email">
+            </div>
+           </div>
+
+          <div class="rows">
+            <div class="row">
+                <label class="label" for="number">Mobile No:</label>
+                <input type="text" id="number" placeholder="Enter Your Number">
+            </div>
+
+
+            <div class="row">
+                <label class="label" for="address">Address:</label>
+                <input type="text" id="address" placeholder="Enter Your Address">
+            </div>
+          </div>
+
+        <div class="rows">
+            <div class="row r2">
+                <label class="label" for="password">Password:</label>
+                <input type="password" id="password" autocomplete="" placeholder="Enter Your Password">
+            </div>
+            <div class="row">
+                <label class="label" for="profileImage">Upload Your image</label>
+                <input type="file" onchange="getImage(event)" id="profileImage"
+                    placeholder="Enter The Local Path of Your Image">
+            </div>
+        </div>
+
+            <div class="rows">
+                <div class="row">
+                    <label class="label" for="title">Title</label>
+                    <input id="title" type="text" pattern="/^[A-Za-z]+$/" placeholder="Enter Your Title" />
+                </div>
+
+                <div class="row">
+                    <label class="label" for="about">About</label>
+                    <input id="about" type="text" pattern="/^[A-Za-z]+$/" placeholder="Enter Your About" />
+                </div>
+            </div>
+
+            <div class="rows">
+                <div class="row">
+                    <label class="label">Experience</label>
+                    <input type="text" id="company" pattern="/^[A-Za-z,]+$/" placeholder="Enter Company Name" />
+                    <div>
+                        <label for="start">Start Date</label>
+                        <input type="date" id="start" placeholder="Select Starting Date">
+
+                        <label for="end">End Date</label>
+                        <input type="date" id="end">
+                    </div>
+                    <button onclick="setValue('exp')" class="bt">Add</button>
+                </div>
+
+                <div class="row">
+                    <label class="label" for="edu">Education</label>
+                    <input id="edu" type="text" pattern="/^[A-Za-z,]+$/" placeholder="Enter the Name of Institute" />
+                    <label for="marks">Marks</label>
+                    <input id="marks" type="text" pattern="/^[A-Za-z,]+$/" placeholder="Enter Your Marks" />
+                    <label for="degree">Degree</label>
+                    <input id="degree" type="text" pattern="/^[A-Za-z,]+$/" placeholder="Enter Your Degree Name" />
+                    <label for="complete">Date of Completion</label>
+                    <input type="date" id="complete" placeholder="">
+
+                    <button onclick="setValue('edu')" class="bt">Add</button>
+                </div>
+            </div>
+
+            <div class="rows">
+
+                <div class="row">
+                    <label class="label" for="skill">Skill</label>
+                    <input id="skill" type="text" placeholder="Enter Your Skills" />
+                    <button onclick="setValue('skill')" class="bt">Add</button>
+                </div>
+            </div>
+
+
+        </form>
+        <input type="submit" value="Add User" class="btn5 btn6" id="addUser"> <!-- Design in Dashboard CSS-->
+        </form>
+    </main>
+    <script src="../AdminScript/AddUSer.js"></script>
+
+</body>
+
+</html>

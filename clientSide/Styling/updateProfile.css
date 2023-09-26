@@ -1,0 +1,213 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+.main-container {
+  height: 100vh;
+  width: 100%;
+  background: white;
+}
+.updater{
+  width: 100%;
+  padding: 10px 100px;
+}
+.row{
+  width: 100%;
+}
+
+
+/* Add Project */
+.addProject {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  background: linear-gradient(to right, #00afb2, #00caac);
+}
+.addProject form{
+  width: 100%;
+}
+#top{
+  width: 100%;
+}
+.nav {
+  display: flex;
+  flex-direction: row;
+  margin: 0px ;
+  justify-content: space-between;
+  align-items: center;
+  height: 100px;
+  width: 100%;
+  padding: 0px 70px;
+}
+
+.logo a {
+  font-size: 25px;
+  text-decoration: none;
+  font-weight: 700;
+  /* color: white; */
+}
+.menu ul {
+  display: flex;
+  list-style-type: none;
+}
+.menu ul li a {
+  text-decoration: none;
+  margin: 5px;
+  /* color:white; */
+  transition: 0.3s all ease-in-out;
+  padding: 5px 10px;
+  font-size: 20px;
+}
+.menu ul li a:hover {
+  background-color: #00afb2;
+  color: white;
+}
+.updateLogo{
+  color: white;
+}
+.projectLogo a {
+  font-size: 30px;
+  color: white;
+  text-decoration: none;
+  font-weight: 800;
+}
+.logout {
+  cursor: pointer;
+}
+.project {
+  width:90%;
+  margin: 0px auto;
+}
+.rows{
+  display: flex;
+  column-gap: 20px;
+  row-gap: 10px;
+}
+.pro {
+  color: white;
+  font-size: 36px;
+  margin-bottom: 10px;
+  margin-top: 50px;
+  color:white;
+}
+
+.info {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+.info label {
+  font-weight: bold;
+  color: white;
+  font-size: 16px;
+  margin-top: 10px;
+}
+.info input {
+  width: 100%;
+  height: 30px;
+  padding: 0px 10px;
+  border: none;
+  outline: none;
+  caret-color: #333333;
+  font-size: 16px;
+  border-radius: 0px;
+  margin-top: 5px;
+  border: 1px solid #c9c7c7;
+}
+.img{
+  width: 100%;
+  border: none;
+}
+.buttons {
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+}
+
+.btn {
+  background: white;
+  width: 50%;
+  margin: 5px;
+  display: flex;
+  border: none;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  font-size: 16px;
+  color: #00afb2;
+  font-weight: 600;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: 0.3s all ease-in-out;
+}
+.btn:hover {
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+}
+.bt{
+  width: 100px;
+  height: 40px;
+}
+
+/* Update PRoject */
+#updateProject{
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height:550px;
+  width: 90%;
+  position: absolute;
+  background:linear-gradient(to right , var(--blue),#00caac);
+  border-radius: 10px;
+}
+#updateProject h3{
+  font-size: 30px;
+  margin-bottom: 10px;
+  color: white;
+}
+.updateFrom{
+ 
+  width: 100%;
+  padding: 0px 50px;
+}
+.updateProfileForm{
+  height: 100vh;
+  width: 80%;
+  padding: 10px 0px;
+  border-radius: 10px;
+  position: absolute;
+  z-index: 1;
+  left: 0PX;
+  top: 0px;
+  display: none;
+  background: linear-gradient(to right,var(--blue),#00afb2);
+}
+.info input{
+  width: 100%;
+  height: 40px;
+}
+.info button{
+  width: 100px;
+}
+
+/* Update Profile */
+
+.updateHeading{
+  color:white;
+  text-align: center ;
+}
+#close{
+  font-size: 30px;
+  color: white;
+  position: absolute;
+  right: 30px;
+  top: 30PX;
+  cursor: pointer;
+}

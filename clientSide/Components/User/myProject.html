@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300&family=Open+Sans:wght@300&family=Poppins:wght@100;200;300;400;500&family=Roboto:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="../../Styling/index.css">
+    <link rel="stylesheet" href="../../Styling/updateProfile.css">
+    <script src="../../Script/myProject.js"></script>
+
+    <title>My Projects</title>
+</head>
+
+<body>
+    <main id="outer-container">
+        <header id="top">
+            <nav class="nav">
+                <div class="projectLogo">
+                    <a class="updateLogo" href="../../Pages/index.html">PoRtFolio</a>
+                </div>
+                <div class="menu">
+                    <ul>
+                        <li><a href="../User/AddProject.html">Add Projects</a></li>
+                        <li><a href="../User/updateProfile.html">update Profile</a></li>
+                        <li><a href="../User/myProject.html">My Projects</a></li>
+                    </ul>
+                    <i class="fa fa-bars "></i>
+                </div>
+            </nav>
+        </header>
+
+        <h1 id="mypro">my Projects</h1>
+        <section id="projectList">
+            <!-- <div id="myProject">
+                
+                    <h2 id="projectTitle">GoFood</h2>
+                    <p id="projectDescription">Lorem ipsum dolor sit amet consectetur adipisicing elit. Non optio porro tenetur quisquam? Deleniti nulla sint optio illum quibusdam molestiae?</p>
+                    <section>
+                        <i id="edit" class="fa fa-edit"></i>
+                        <i id="del" class="fa fa-trash"></i>
+                    </section>
+                
+                </div> -->
+        </section>
+
+        <section id="updateProject">
+            <h3>update Project</h3>
+            <i id="updateClose" class="fa fa-close"></i>
+            <form action="" class="updateFrom">
+                <div class="rows">
+                    <div class="info">
+                        <label for="title">Add Project Title:</label>
+                        <input id="title" type="text" placeholder="Enter Your Project Title" />
+                    </div>
+
+                    <div class="info">
+                        <label for="description">Add Project Disription:</label>
+                        <input id="description" type="text" placeholder="Enter Your Project Description" />
+                    </div>
+                </div>
+                <div class="rows">
+                    <div class="info">
+                        <label for="source">Source Code:</label>
+                        <input id="code" type="text" placeholder="paste url of your code" />
+                    </div>
+                    <div class="info">
+                        <label for="tags">Tags:</label>
+                        <input id="tags" type="text" placeholder="Enter Project Tags" />
+                    </div>
+                </div>
+              <div class="rows">
+                <div class="info">
+                    <label for="lang">Language:</label>
+                    <input id="lang" type="text" placeholder="Enter Project Language" />
+                </div>
+                <div class="info">
+                    <label for="frame">Frame:</label>
+                    <input id="frame" type="text" placeholder="Language Frame" />
+                </div>
+              </div>
+              <div class="rows">
+                <div class="info">
+                    <label for="demo">See Live:</label>
+                    <input id="live" type="text" placeholder="paste url of your project">
+                </div>
+
+               
+              </div>
+                <div class="buttons info">
+                    <button id="update" class="btn">update</button>
+                </div>
+            </form>
+
+        </section>
+    </main>
+</body>
+
+</html>

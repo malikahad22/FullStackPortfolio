@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../Styling/updateProfile.css ">
+    <title>Document</title>
+</head>
+
+<body>
+    <main class="addProject">
+        <header id="top">
+            <nav class="nav">
+                <div class="logo">
+                    <a class="updateLogo" href="../../Pages/index.html">PoRtFolio</a>
+                </div>
+                <div class="menu">
+                    <ul class="updateLogo">
+                        <li><a class="updateLogo" href="../User/AddProject.html">Add Projects</a></li>
+                        <li><a class="updateLogo" href="../User/updateProfile.html">update Profile</a></li>
+                        <li><a class="updateLogo" href="../User/myProject.html">My Projects</a></li>
+                    </ul>
+                    <i class="fa fa-bars "></i>
+                </div>
+            </nav>
+        </header>
+
+        <h1 class="pro">Add Your Project</h1>
+        <form onsubmit="addProject()" action="">
+            <div class="project">
+                <div class="rows">
+                    <div class="info">
+                        <label for="title">Add Project Title:</label>
+                        <input id="title" type="text"  placeholder="Enter Your Project Title" pattern="[^0-9]*"/>
+                    </div>
+
+                    <div class="info">
+                        <label for="description">Add Project Disription:</label>
+                        <input id="description" type="text" 
+                            placeholder="Enter Your Project Description"  pattern="[^0-9]*"/>
+                    </div>
+                </div>
+                <div class="rows">
+                    <div class="info">
+                        <label for="framework">FrameWork:</label>
+                        <input id="framework"  type="text"
+                            placeholder="Enter Your Project FrameWork"  pattern="[^0-9]*"/>
+                    </div>
+                    <div class="info">
+                        <label for="language">Language:</label>
+                        <input id="language" type="text" placeholder="Enter Programming Language"  pattern="[^0-9]*"/>
+                    </div>
+                </div>
+
+                <div class="rows">
+                    <div class="info">
+                        <label for="tags">Add Project Tags:</label>
+                        <input id="tags" type="text"  placeholder="Enter Your Project Tags "  pattern="[^0-9]*"/>
+                    </div>
+
+
+                    <div class="info">
+                        <label for="code">Source Code:</label>
+                        <input id="code" type="text" placeholder="paste url of your code" />
+                    </div>
+                </div>
+                <div class="rows">
+
+                    <div class="info">
+                        <label for="live">See Live:</label>
+                        <input id="live" type="text" placeholder="paste url of your project">
+                    </div>
+
+                    <div class="info img">
+                        <label for="input_file">Upload Project Image:</label>
+                        <input id="input_file" type="file"/>
+                    </div>
+                </div>
+                <div class="buttons info">
+                    <input type="submit" value="Add" class="btn"/>
+                    <button onclick="goHome()" class="btn">Next</button>
+                </div>
+
+            </div>
+        </form>
+    </main>
+    <script src="../../Script/addProject.js"></script>
+</body>
+
+</html>

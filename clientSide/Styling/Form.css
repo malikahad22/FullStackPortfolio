@@ -1,0 +1,247 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root {
+    --blue: #00afb2;
+  }
+.main{
+    font-family: "Montserrat", sans-serif;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(to right, var(--blue), #00caac);
+    display: flex;
+    /* opacity: 0; */
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.h1{
+    color:white;
+    padding-bottom: 30px;
+    font-size: 40px;
+    letter-spacing: 2px;
+}
+
+#expForm{
+    display: none;
+    width: 80%;
+    background: #00caac;
+    padding: 30px 50px;
+    position: absolute;
+    top: 30px;
+}
+#updateExp{
+    display: none;
+    width: 80%;
+    background: #00caac;
+    padding: 30px 50px;
+    position: absolute;
+    top: 30px;
+}
+
+#eduForm{
+    display: none;
+    width: 80%;
+    /* z-index: 1; */
+    position: absolute;
+    background: #00caac;
+    padding: 30px 50px;
+    top: 30px;
+    left: 10%;
+}
+#updateEdu{
+    display: none;
+    width: 80%;
+    background: #00caac;
+    padding: 30px 50px;
+    position: absolute;
+    top: 30px;
+}
+
+
+.form{
+    width: 400px;
+    padding: 10px 15px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: rgb(0,0,0,0.5) 0px 0px 15px;
+}
+.profileForm{
+    width: 80%;
+}
+#profileform{
+    position: absolute;
+    display:none;
+    flex-direction: column;
+    top: 5%;
+    left: 10%;
+    height: 90%;
+    width: 80%;
+    padding: 20px 10px;
+    cursor: pointer;
+    background-color: white;
+}
+.fa-xmark{
+    font-size: 20px;
+    position: absolute;
+    right: 20px;
+}
+.rows{
+    display: flex;
+    margin-top: 10px;
+    width: 100%;
+}
+.info label{
+    font-weight:bold;
+    color:#00afb2;
+    font-size: 16px;
+    margin-top: 20px;
+
+}
+.row{
+    width: 100%;
+    margin: 5px;
+    
+}
+
+.row input{
+    width: 100%;
+    height: 40px;
+    padding: 0px 10px;
+    border: none;
+    outline: none;
+    caret-color: #333333;
+    font-size: 16px;
+    border-radius: 0px;
+    margin-top: 5px;
+    border: 1px solid #c9c7c7;
+}
+.row label{
+    margin: 5px 0px;
+}
+input{
+    width: 50%;
+}
+#input_file{
+    border: none;
+    margin-top: 15px;
+}
+.acc{
+    padding: 5px 0px;
+}
+.acc a {
+    text-decoration: none;
+    color: var(--blue);
+    font-weight: 800;
+    transition: 0.8s all ease-in-out;
+}
+.acc a:hover{
+    border-bottom: 1px solid var(--blue);
+    transition: 0.8s all ease-in-out;
+
+}
+
+.btn{
+    width: 100%;
+    height: 40px;
+    background: transparent;
+    border: none;
+    font-size: 16px;
+    color: black;
+    background: linear-gradient(to right, var(--blue) , #00caac);
+    border-radius: 5px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    text-align: center;
+    transition: 0.5s all ease-in-out;
+}
+.bt{
+    background: linear-gradient(to right, var(--blue) , #00caac);
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    height: 40px;
+    font-size: 16px;
+    color: white;
+    font-weight: 600;
+    letter-spacing: 1px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+.submit{
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+}
+.r{
+    display: flex;
+}
+.r button{
+    width: 200px;
+}
+.r2{
+    margin-top: 15¦px;
+}
+
+.btn:hover{
+    border-radius: 0px;
+}
+.pro{
+    color: white;
+    /* margin-top: -80px; */
+}
+.outerButton{
+    background: transparent;
+    border: none;
+    font-size: 20px;
+    color: white;
+    position: absolute;
+    right: 50px;
+    bottom: 20px;
+    border: 1px solid white;
+    padding: 5px 15px;
+    cursor: pointer;
+    transition: 0.4s all ease-in-out;
+}
+.outerButton:hover{
+    background-color: white;
+    color: #00afb2;
+}
+
+.btn5{
+color: #00afb2;
+font-size: 16px;
+font-weight: 700;
+letter-spacing: 1px;
+width:100%;
+height: 40px;
+background-color: white;
+outline: none;
+border: none;
+cursor: pointer;
+margin-top: 20px;
+}
+.btn6{
+    width: 200px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    transition: all 0.5s ease-in-out;
+}
+.btn6:hover{
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+}
+.btn{
+    color: white;
+    font-weight: 800;
+    margin-top: 20px;
+}
+@media screen and (max-width:425px) {
+
+    .form{
+        width: 300px;
+    }
+    
+}

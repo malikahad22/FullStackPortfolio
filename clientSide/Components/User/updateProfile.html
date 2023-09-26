@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300&family=Open+Sans:wght@300&family=Poppins:wght@100;200;300;400;500&family=Roboto:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="../../Styling/index.css">
+    <link rel="stylesheet" href="../../Styling/updateProfile.css">
+    <link rel="stylesheet" href="../../Styling/Form.css">
+    <title>Update Profile</title>
+</head>
+
+<body>
+    <main class="main-container">
+        <header id="top">
+            <nav class="nav">
+                <div class="logo">
+                    <a href="../../Pages/index.html">PoRtFolio</a>
+                </div>
+                <div class="menu">
+                    <ul>
+                        <li><a href="../User/AddProject.html">Add Projects</a></li>
+                        <li><a href="../User/updateProfile.html">update Profile</a></li>
+                        <li><a href="../User/myProject.html">My Projects</a></li>
+                    </ul>
+                    <i class="fa fa-bars "></i>
+                </div>
+            </nav>
+        </header>
+
+        <h1 class="updateHeading">Update Profile</h1>
+        <form class="updater">
+
+            <div class="rows">
+                <div class="row">
+                    <label class="label" for="title">Title</label>
+                    <input id="title" type="text" pattern="/^[A-Za-z]+$/" placeholder="Enter Your Title" />
+                </div>
+            </div>
+
+            <div class="rows">
+                <div class="row">
+                    <label class="label" for="name">Full Name:</label>
+                    <input type="text" id="name" pattern="/^[A-Za-z]+$/" placeholder="Enter Your Full Name">
+                </div>
+
+                <div class="row">
+                    <label class="label" for="email">Email:</label>
+                    <input type="text" id="email"  pattern="/^[a-zA-Z0-9@]+$/" placeholder="Enter Your Email" />
+                </div>
+            </div>
+
+            <div class="rows">
+                <div class="row">
+                    <label class="label" for="number">Mobile No:</label>
+                    <input type="text" id="number" pattern="/^[0-9]+$/" placeholder="Enter Your Number">
+                </div>
+
+
+                <div class="row">
+                    <label class="label" for="address">Address:</label>
+                    <input type="text" id="address" placeholder="Enter Your Address">
+                </div>
+            </div>
+
+            <div class="rows">
+
+                <div class="row  r2">
+                    <label class="label" for="password">Password:</label>
+                    <input type="password" id="password" placeholder="Enter Your Password">
+                </div>
+
+                <div class="row  r2">
+                    <label class="label" for="profileImage">Profile Image:</label>
+                    <input type="file" onchange="getImage(event)" id="profileImage"/>
+                </div>
+            </div>
+
+            <div class="rows">
+                <div class="row">
+                    <label class="label" for="skills">Skill</label>
+                    <input id="skill" type="text" pattern="/^[A-Za-z,]+$/" placeholder="Enter Your Skills" />
+                </div>
+
+                <div class="row">
+                    <label class="label" for="about">About</label>
+                    <input id="about" type="text" pattern="/^[a-zA-Z0-9@]+$/" placeholder="Enter Your About" />
+                </div>
+            </div>
+            <input type="submit" class="btn5 btn3" id="updateProfile" value="Update Record"/>
+        </form>
+    </main>
+    <script src="../../Script/updateProfile.js"></script>
+</body>
+
+</html>

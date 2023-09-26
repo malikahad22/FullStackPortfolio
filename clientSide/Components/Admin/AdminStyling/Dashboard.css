@@ -1,0 +1,356 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  /* font-family: "Poppins", sans-serif; */
+}
+:root {
+  --blue: #00afb2;
+}
+.main {
+  height: 100vh;
+  width: 100%;
+}
+.header {
+  display: flex;
+  height: 100px;
+  align-items: center;
+  justify-content: space-around;
+}
+.logo a {
+  font-size: 25px;
+  text-decoration: none;
+  font-weight: 700;
+  background: linear-gradient(to right, var(--blue), #00caac);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.links ul {
+  display: flex;
+  list-style-type: none;
+}
+.links ul li a {
+  text-decoration: none;
+  margin: 5px;
+  color: #333333;
+  transition: 0.3s all ease-in-out;
+  padding: 5px 20px;
+  font-size: 16px;
+}
+.links ul li a:hover {
+  background-color: #00afb2;
+  color: white;
+}
+.innerContainer {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 80%;
+}
+
+.leftSection {
+  width: 50%;
+  /* height: 100%; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0px 50px;
+  flex: 1 1 350px;
+}
+.leftSection h1 {
+  color: #333333;
+  font-size: 40px;
+}
+.mark {
+  text-decoration: none;
+  font-weight: 700;
+  background: linear-gradient(to right, var(--blue), #00caac);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.leftSection p {
+  font-size: 16px;
+  margin-top: 20px;
+  line-height: 25px;
+  text-align: justify;
+}
+
+.rightSection {
+  width: 50%;
+  height: 100%;
+  padding-right: 50px;
+  flex: 1 1 350px;
+
+  /* border: 1px solid black; */
+}
+
+.rightSection img {
+  width: 90%;
+  /* height: 100%; */
+}
+.pro {
+  font-size: 30px;
+  font-weight: 700;
+  color: #333333;
+  text-align: center;
+  text-transform: uppercase;
+  padding-top: 50px;
+}
+.Projects {
+  margin: 50px 100px;
+  /* position: absolute; */
+  /* height: 100%; */
+}
+#search {
+  width: 95%;
+  height: 50px;
+  outline: none;
+  padding: 0px 20px;
+  border: 2px solid #575353;
+  border-right: none;
+  font-size: 16px;
+  border-radius: 3px;
+}
+#User {
+  width: 95%;
+  height: 50px;
+  outline: none;
+  padding: 0px 20px;
+  border: 2px solid #575353;
+  border-right: none;
+  font-size: 16px;
+  border-radius: 3px;
+}
+.searchBar {
+  margin: 30px 0px;
+  height: 30px;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+.searchIcon {
+  background: #00afb2;
+  color: white;
+  width: 100px;
+  text-align: center;
+  padding: 15px 10px 15px 20px;
+  font-size: 20px;
+  cursor: pointer;
+
+}
+.buton{
+  width: 140px;
+  margin-left: 10px;
+}
+.buton a{
+  text-decoration: none;
+  background-color: #00afb2;
+  color: white;
+  padding: 15px;
+  font-size: 16;
+  font-weight: 600;
+  letter-spacing: 1px;
+  transition: 0.6s all ease-in-out;
+}
+.buton a:hover{
+  background: white;
+  color: #0fb9b1;
+  border: 1px solid #00afb2;
+}
+.project {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  /* height: 900px; */
+  margin-bottom: 60px;
+  position: relative;
+  gap: 20px;
+}
+.left {
+  width: 40%;
+  flex: 1 1 350px;
+  cursor: pointer;
+
+  /* border:1px solid black; */
+}
+
+.title {
+  font-size: 20px;
+  color: #333333;
+  font-weight: 800;
+}
+.text {
+  color: #575353;
+  font-size: 16px;
+  padding: 10px 20px 20px 0px;
+}
+.text-bottom {
+  display: flex;
+}
+.src {
+  margin-left: 20px;
+  color: var(--blue);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+  transition: 0.5s all ease-in-out;
+  padding: 5px 15px;
+}
+.src:hover {
+  background-color: var(--blue);
+  color: white;
+}
+
+.btn3 {
+  display: inline-block;
+  background: transparent;
+  text-decoration: none;
+  color: #0fb9b1;
+  border: 1px solid var(--blue);
+  font-size: 14px;
+  padding: 5px 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.5s all ease-in-out;
+}
+.btn3:hover {
+  background-color: var(--blue);
+  color: white;
+}
+.right {
+  width: 60%;
+  height: 300px;
+  flex: 1 1 500px;
+  /* border: 1px solid black ; */
+}
+.projectImage {
+  width: 100%;
+  height: 300px;
+
+  object-fit: contain;
+  box-shadow: rgba(17, 12, 46, 0.15) 0px 0px 20px 0px;
+  transition: 0.5s all ease-in-out;
+}
+.message {
+  color: #333333;
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-align: center;
+  margin: 0px auto;
+}
+.projectImage:hover {
+  transform: scale(1.02);
+}
+
+/* User File */
+.users {
+  padding: 0px 100px;
+}
+#userList {
+  margin-top: 20px;
+}
+#wrapper {
+  width: 100%;
+  height: 100%;
+  border: 2px solid black;
+  display: flex;
+  padding: 30px;
+  margin-bottom: 30px;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 5px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0,0.2);
+  transition: 0.5s all ease-in-out;
+}
+#wrapper:hover{
+transform: scale(1.01);
+}
+
+#left-wrapper {
+  height: 100%;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  /* align-items: center; */
+
+  /* border: 1px solid black; */
+}
+
+#left-wrapper img {
+  width: 50%;
+  height: 80%;
+  object-fit: contain;
+  /* border: 1px solid; */
+}
+
+#right-wrapper {
+  height: 100%;
+  width: 60%;
+  row-gap: 10px;
+  /* border: 1px solid black; */
+}
+#name {
+  font-size: 20px;
+  color: #333333;
+  font-weight: 700;
+}
+#title {
+  font-size: 16px;
+  font-weight: 500;
+  color: #575353;
+  padding: 5px 0px;
+  text-transform: uppercase;
+}
+#des,
+#project,
+#exp,
+#edu,
+#skill {
+  font-weight: 500;
+  color: #333333;
+  letter-spacing: 1px;
+  padding: 5px 0px;
+}
+#contact {
+  /* display: flex; */
+  margin-top: 30px;
+}
+#heading {
+  font-size: 16px;
+  font-weight: 800;
+}
+/* Edit and Delete User */
+.fa-edit,
+#del {
+  color: white;
+  background-color: #00afb2;
+  font-size: 20px;
+  height: 30px;
+  width: 70px;
+  text-align: center;
+  padding-top: 5px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 0.5s all ease-in-out;
+  margin-right: 10px;
+  margin-top: 10px;
+}
+.fa-edit:hover,
+#del:hover {
+  transform: scale(1.05);
+}
+
+/* Add New User File */
+.btn6{
+width: 200px;
+}

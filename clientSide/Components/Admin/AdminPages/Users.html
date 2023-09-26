@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" /> 
+    <link rel="stylesheet" href="../../../Styling/Form.css">
+    <link rel="stylesheet" href="../../../Styling/updateProfile.css">
+    <link rel="stylesheet" href="../AdminStyling/Dashboard.css">
+
+
+    <!-- <script src="./updateProfile.js"></script> -->
+    <script src="../AdminScript/UsersList.js"></script>
+    <title>Users</title>
+</head>
+<body class="main-container">
+    <header class="header">
+        <div class="logo">
+            <a href="../AdminPages/Dashboard.html">Admin Dash<span>Board</span></a>
+        </div>
+        <div class="links">
+            <ul>
+                <li>
+                    <a href="../AdminPages/Users.html">Users</a>
+                    <a href="../AdminPages/Projects.html">Projects</a>
+                </li>
+            </ul>
+        </div>
+    </header>
+   <main class="users">
+    <h1 class="pro">Users</h1>
+    <div class="searchBar">
+        <input id="User" type="text" placeholder="Search User By His Information">
+        <i id="searchIcon" class="fa fa-search searchIcon"></i>
+        <div class="buton">
+            <a href="../AdminPages/AddUser.html">Add User</a>
+        </div>
+    </div>
+    <div id="userList">
+       
+    </div>
+    <main id="update" class="updateProfileForm main">
+        <h1 class="updateHeading">Update User Profile</h1>
+        <i class="fa fa-close" id="close"></i>
+        <form class="updater">
+            <div class="rows">
+                <div class="row">
+                    <label class="label" for="usertitle">Title</label>
+                    <input id="usertitle" type="text" placeholder="Enter Your Title" />
+                </div>
+            </div>
+
+            <div class="rows">
+                <div class="row">
+                    <label class="label" for="username">Full Name:</label>
+                    <input type="text" id="username" placeholder="Enter Your Full Name">
+                </div>
+
+                <div class="row">
+                    <label class="label" for="useremail">Email:</label>
+                    <input type="text" id="useremail" placeholder="Enter Your Email" />
+                </div>
+            </div>
+
+            <div class="rows">
+                <div class="row">
+                    <label class="label" for="usernumber">Mobile No:</label>
+                    <input type="text" id="usernumber" placeholder="Enter Your Number">
+                </div>
+
+
+                <div class="row">
+                    <label class="label" for="useraddress">Address:</label>
+                    <input type="text" id="useraddress" placeholder="Enter Your Address">
+                </div>
+            </div>
+
+            <div class="rows">
+
+                <div class="row  r2">
+                    <label class="label" for="userpassword">Password:</label>
+                    <input type="password" id="userpassword" placeholder="Enter Your Password">
+                </div>
+
+                <div class="row  r2">
+                    <label class="label" for="userprofileImage">Profile Image:</label>
+                    <input type="file" id="userprofileImage" placeholder="Enter Path For Profile Image">
+                </div>
+            </div>
+
+            <div class="rows">
+                <div class="row">
+                    <label class="label" for="userskill">Skill</label>
+                    <input id="userskill" type="text" placeholder="Enter Your Skills" />
+                </div>
+
+                <div class="row">
+                    <label class="label" for="userabout">About</label>
+                    <input id="userabout" type="text" placeholder="Enter Your About" />
+                </div>
+            </div>
+            <button class="btn5" id="updateProfile">Update Record</button>
+        </form>
+    </main>
+   </main>
+</body>
+</html>
