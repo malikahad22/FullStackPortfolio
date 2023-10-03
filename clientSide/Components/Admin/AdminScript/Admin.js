@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     let search = document.getElementById("search");
-    search.addEventListener("input", () => {
+    search.addEventListener("change", () => {
         let searchValue = document.getElementById("search").value;
         displayProjects(searchValue);
     });

@@ -37,7 +37,7 @@ module.exports = async (req, resp) => {
             role: foundUser.userStatus,
           },
           "my-secret-id",
-          { expiresIn: "50h" }
+          { expiresIn: "1m" }
         );
 
         if (foundUser.userStatus == "admin") {

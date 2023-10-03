@@ -104,7 +104,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     else {
       filterData = await resp.json();
     }
-    console.log(filterData)
 
     if (filterData.length === 0) {
 
@@ -192,8 +191,8 @@ document.addEventListener("DOMContentLoaded", async () => {
   // Search button click event listener
 
   let search = document.getElementById("search");
-  search.addEventListener("input", () => {
-    displayProjects(search.value);
+  search.addEventListener("change", () => {
+   setTimeout(displayProjects(search.value),2000);
   });
   // Initial display of all projects
   displayProjects("");
@@ -535,6 +534,9 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   let whatsapp = document.getElementById('whatsapp');
   whatsapp.setAttribute('href', `https://wa.me/${userData.number}`);
+
+
+
 
 
 });

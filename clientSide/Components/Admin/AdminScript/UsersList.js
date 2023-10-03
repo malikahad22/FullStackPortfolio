@@ -289,7 +289,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
 
   // Search button click event listener
   let searchIcon = document.getElementById("User");
-  searchIcon.addEventListener("input", () => {
+  searchIcon.addEventListener("change", () => {
     let searchValue = document.getElementById("User").value;
     displayUser(searchValue);
   });
