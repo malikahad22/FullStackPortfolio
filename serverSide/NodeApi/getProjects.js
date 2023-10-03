@@ -2,6 +2,8 @@ const { tokenExpiry } = require('../Utils/sessionExp');
 const { con } = require('../config');
 module.exports = (req, resp) => {
 
+  let peram = req.url.split('/')[2];
+  console.log("dfsd",peram);
   let token = req.headers.authorization;
   let decode = tokenExpiry(token);
 
@@ -24,7 +26,7 @@ module.exports = (req, resp) => {
       });
     }
     else {
-
+      let filterProjects;
       let sql = "SELECT * from projects";
       con.query(sql, (err, result) => {
 
@@ -34,18 +36,36 @@ module.exports = (req, resp) => {
           resp.end(JSON.stringify({ title: "Internal Server Error", message: "Error adding user to the database" }));
         }
         else {
-          let filterProjects = result.filter((p) => {
-            if (p.userId == decode.userId) {
-              return p;
-            }
-          });
-          resp.writeHead(200, { 'Content-Type': 'application/json' });
-          resp.write(JSON.stringify(filterProjects));
-          resp.end();
+          if(peram == ""){
+             filterProjects = result.filter((p) => {
+              if (p.userId == decode.userId) {
+                return p;
+              }
+            });
+          }
+          else if(peram == "myprojects"){
+            filterProjects = result.filter((p) => {
+              if (p.userId == decode.userId) {
+                return p;
+              }
+            });
+          }
+          else{
+            filterProjects = result.filter((p) => {
+              if (p.userId == decode.userId && (p.title.toLowerCase().includes(peram.toLowerCase()) || p.frame.toLowerCase().includes(peram.toLowerCase()) || p.lang.toLowerCase().includes(peram.toLowerCase()))) {
+                return p;
+              }
+            });
 
+          }
         }
 
-      })
+        resp.writeHead(200, { 'Content-Type': 'application/json' });
+        resp.write(JSON.stringify(filterProjects));
+        resp.end();
+      });
+
+  
 
     }
   }

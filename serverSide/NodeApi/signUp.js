@@ -42,7 +42,7 @@ module.exports = async (req, resp) => {
         let sql = `INSERT INTO users (id, name, mobile, address, password, profileImage, title, about, skills,email,userStatus,linkedin,github,twitter)
         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?,?,?,?)`;
 
-        con.query(sql, [id, body.name, body.mobile, body.address, body.password, body.profileImage, body.title, body.about, body.skills, body.email,body.role , body.linkedin , body.github , body.twitter], async (err, result) => {
+        con.query(sql, [id,body.name,body.mobile,body.address,body.password,body.profileImage,body.title,body.about,body.skills,body.email,body.role ,body.linkedin ,body.github ,body.twitter], async (err, result) => {
           if (err) {
             console.error(err);
             resp.writeHead(500, { "Content-Type": "application/json" });

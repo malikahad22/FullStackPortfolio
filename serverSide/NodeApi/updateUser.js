@@ -14,7 +14,7 @@ module.exports = async (req, resp) => {
     let body = await requestBodyparser(req);
 
     let sql = `UPDATE users
-               SET id = ${id} ,title = '${body.title}', name = '${body.name}',email =' ${body.email}',address = '${body.address}',profileImage = '${body.profileImage}', about =' ${body.about}',skills = '${body.skills}', userStatus = '${body.userStatus}', linkedin = '${body.linkedin}',github = '${body.github}',twitter= '${body.twitter}'
+               SET id = ${id} ,title = '${body.title}', name = '${body.name}',email ='${body.email}',address = '${body.address}',profileImage = '${body.profileImage}', about =' ${body.about}',skills = '${body.skills}', userStatus = '${body.userStatus}', linkedin = '${body.linkedin}',github = '${body.github}',twitter= '${body.twitter}'
                 where id = ${id}`;
     con.query(sql, (err, result) => {
       if (err) {

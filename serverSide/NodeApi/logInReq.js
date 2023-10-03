@@ -5,7 +5,6 @@ const { con } = require("../config");
 module.exports = async (req, resp) => {
   try {
     const user = await bodyParser(req);
-
     if (!user.email || !user.password) {
       resp.writeHead(400, { "Content-Type": "application/json" });
       resp.end(JSON.stringify({ message: "All fields must be filled" }));
@@ -15,6 +14,7 @@ module.exports = async (req, resp) => {
     // Initialize USERID and token
     let USERID;
     let token;
+   
 
     // Perform the user query
     let sql = "SELECT * FROM users";
@@ -23,12 +23,12 @@ module.exports = async (req, resp) => {
         console.log("Error:", err);
         return;
       }
-
       // Find the user
-      const foundUser = result.find(
-        (u) => u.email == user.email && u.password == user.password
-      );
-
+     let foundUser = result.find((us)=>{
+        if(us.email == user.email && us.password == user.password){
+          return us;
+        }
+      })
       if (foundUser) {
         USERID = foundUser.id;
         token = jwt.sign(
@@ -43,15 +43,20 @@ module.exports = async (req, resp) => {
         if (foundUser.userStatus == "admin") {
           resp.writeHead(200, { "Content-Type": "application/json" });
           resp.end(JSON.stringify({ message: "Admin", token, foundUser }));
-        } else {
+        } 
+        else if(foundUser.userStatus == 'user'){
           resp.writeHead(200, { "Content-Type": "application/json" });
           resp.end(
             JSON.stringify({
-              message: "User",
+              message: "user",
               token,
               foundUser,
             })
           );
+        }
+        else 
+        {
+          console.log("User not found");
         }
       } else {
         resp.writeHead(401, { "Content-Type": "application/json" });
