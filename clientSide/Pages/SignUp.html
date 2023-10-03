@@ -2,54 +2,55 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../Styling/index.css">
-    <link rel="stylesheet" href="../Styling/Form.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../Styling/index.css" />
+    <link rel="stylesheet" href="../Styling/Form.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300&family=Open+Sans:wght@300&family=Poppins:wght@100;200;300;400;500&family=Roboto:wght@100;300;400;500;700;900&display=swap"
         rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
     <title>SignUp</title>
 </head>
 
 <body>
-
     <main class="main">
         <h1 class="h1">SignUp</h1>
         <form class="form">
             <div class="row">
                 <label class="label" for="name">Full Name:</label>
-                <input type="text" id="name" placeholder="Enter Your Full Name">
+                <input type="text" id="name" pattern="/^[A-Za-z]+$/" placeholder="Enter Your Full Name" required />
             </div>
 
             <div class="row">
                 <label class="label" for="email">Email:</label>
-                <input type="text" id="email" placeholder="Enter Your Email">
+                <input type="email" id="email" placeholder="Enter Your Email" required />
             </div>
 
             <div class="row">
                 <label class="label" for="number">Mobile No:</label>
-                <input type="text" id="number" placeholder="Enter Your Number">
+                <input type="text" pattern="[0-9]+" id="number" placeholder="Enter Your Number" required />
             </div>
-
 
             <div class="row">
                 <label class="label" for="address">Address:</label>
-                <input type="text" id="address" placeholder="Enter Your Address">
+                <input type="text" id="address" placeholder="Enter Your Address" />
             </div>
 
             <div class="row r2">
                 <label class="label" for="password">Password:</label>
-                <input type="password" id="password" autocomplete="" placeholder="Enter Your Password">
+                <input type="password" id="password" autocomplete="" placeholder="Enter Your Password" required />
             </div>
             <div class="row">
                 <label class="label" for="profileImage">Upload Your image</label>
-                <input type="file" onchange="getImage(event)"  id="profileImage" placeholder="Enter The Local Path of Your Image">
+                <input type="file" onchange="getImage(event)" id="profileImage"
+                    placeholder="Enter The Local Path of Your Image" required />
             </div>
-            <p class="acc">Have an account ? <a href="../Pages/Login.html">LogIn</a></p>
+            <p class="acc">
+                Have an account ? <a href="../Pages/Login.html">LogIn</a>
+            </p>
 
             <div>
                 <button class="btn" id="profilePopUp">Create Account</button>
@@ -61,60 +62,50 @@
                 <div class="rows">
                     <div class="row">
                         <label class="label" for="title">Title</label>
-                        <input id="title" type="text" pattern="/^[A-Za-z]+$/" placeholder="Enter Your Title" />
+                        <input id="title" type="text" pattern="/^[A-Za-z]+$/" placeholder="Enter Your Title" required />
                     </div>
 
                     <div class="row">
                         <label class="label" for="about">About</label>
-                        <input id="about" type="text" pattern="/^[A-Za-z]+$/" placeholder="Enter Your About" />
+                        <input id="about" type="text" pattern="/^[A-Za-z]+$/" placeholder="Enter Your About" required />
                     </div>
                 </div>
 
                 <div class="rows">
                     <div class="row">
-                        <label class="label">Experience</label>
-                        <input type="text" id="company" pattern="/^[A-Za-z,]+$/" placeholder="Enter Company Name" />
-                       <div>
-                        <label for="start">Start Date</label>
-                        <input type="date" id="start" placeholder="Select Starting Date">
-
-                        <label for="end">End Date</label>
-                        <input type="date" id="end">
-                       </div>
-                        <button onclick="setValue('exp')" class="bt">Add</button>
+                        <label class="label" for="github">Add github profile</label>
+                        <input id="github" type="text" placeholder="Enter Your github account" required />
                     </div>
 
                     <div class="row">
-                        <label class="label" for="edu">Education</label>
-                        <input id="edu" type="text" pattern="/^[A-Za-z,]+$/"
-                            placeholder="Enter the Name of Institute" />
-                            <label for="marks">Marks</label>
-                            <input id="marks" type="text" pattern="/^[A-Za-z,]+$/"
-                            placeholder="Enter Your Marks" />
-                            <label for="degree">Degree</label>
-                            <input id="degree" type="text" pattern="/^[A-Za-z,]+$/"
-                            placeholder="Enter Your Degree Name" />
-                            <label for="complete">Date of Completion</label>
-                            <input type="date" id="complete" placeholder="">
-
-                        <button onclick="setValue('edu')" class="bt">Add</button>
+                        <label class="label" for="linkedin">Add linkedin Profile</label>
+                        <input id="linkedin" type="text" placeholder="Enter Your linkedin account" required />
                     </div>
                 </div>
-
                 <div class="rows">
-
+                    <div class="row">
+                        <label class="label" for="twitter">Add twitter Profile</label>
+                        <input id="twitter" type="text" placeholder="Enter Your twitter account" required />
+                    </div>
                     <div class="row">
                         <label class="label" for="skill">Skill</label>
                         <input id="skill" type="text" placeholder="Enter Your Skills" />
                         <button onclick="setValue('skill')" class="bt">Add</button>
                     </div>
                 </div>
-            <button   id="submitbtn" class="bt submit">Submit</button>
+                <div class="rows">
+                    <label for="role">Select User Role</label>
+                    <select name="role" id="role">
+                        <option value="value">User Role</option>
+                        <option value="user">User</option>
+                        <option value="admin">admin</option>
+                    </select>
+                </div>
+                <button id="submitbtn" class="bt submit">Submit</button>
             </div>
         </form>
     </main>
     <script src="../Script/SignUp.js"></script>
-
 </body>
 
 </html>

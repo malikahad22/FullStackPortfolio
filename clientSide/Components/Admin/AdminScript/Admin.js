@@ -1,24 +1,29 @@
 document.addEventListener("DOMContentLoaded", () => {
     // --------------------------------------------Projects LIST----------------------------------------->
+    let token = localStorage.getItem('token');
 
+    let headers = {
+      "ContentType":"application/json",
+      "Authorization":token
+    }
   async  function displayProjects(searchValue) {
         let parentElement = document.getElementById("p1");
 
         // Clear previous search results
         parentElement.innerHTML = "";
         var filterData;
-        fetch("http://localhost:8000/projects")
-            .then((resp) =>resp.json())
-            .then((res) => {
-                if (searchValue === "") {
-                    filterData = res;
-                } else {
-                    filterData = res.filter((f) => {
-                        if (f.title.toLowerCase().includes(searchValue.toLowerCase()) || f.lang.includes(searchValue)) {
-                            return f;
-                        }
-                    });
-                }
+        let resp = await fetch(`http://localhost:8000/admin/projects/${searchValue}`,{
+            method:"GET",
+            headers:headers
+        });
+        
+        if(resp.status === 401){
+            alert("Token is Expire");
+            localStorage.clear();
+            window.location.href = "http://127.0.0.1:5501/clientSide/Pages/Login.html";
+        }
+         filterData =await resp.json();
+             
                 if (filterData.length === 0) {
                     let message = document.createElement("p");
                     message.className = "message";
@@ -74,7 +79,6 @@ document.addEventListener("DOMContentLoaded", () => {
                         parentElement.appendChild(rightNode);
                     }
                 }
-            });
     }
 
     let search = document.getElementById("search");

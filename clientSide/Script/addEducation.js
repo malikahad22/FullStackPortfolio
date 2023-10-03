@@ -1,7 +1,7 @@
 let Tokenn = localStorage.getItem('token');
 
-document.addEventListener('DOMContentLoaded', () => {
-
+document.addEventListener('DOMContentLoaded', (e) => {
+e.preventDefault()
   let headers = {
     'Content-Type': 'application/json',
     'Authorization': Tokenn
@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let addEducation = document.getElementById('addEducation');
   addEducation.addEventListener('click', () => {
-
     let school = document.getElementById('school').value;
     let marks = document.getElementById('marks').value;
     let complete = document.getElementById('Complete').value;

@@ -93,6 +93,34 @@
                     <input id="about" type="text" pattern="/^[a-zA-Z0-9@]+$/" placeholder="Enter Your About" />
                 </div>
             </div>
+
+            <div class="rows">
+                <div class="row">
+                    <label class="label" for="linkedin">Linkedin</label>
+                    <input id="linkedin" type="text" pattern="/^[A-Za-z,]+$/" placeholder="Enter Your Skills" />
+                </div>
+
+                <div class="row">
+                    <label class="label" for="github">github</label>
+                    <input id="github" type="text" pattern="/^[a-zA-Z0-9@]+$/" placeholder="Enter Your About" />
+                </div>
+            </div>
+
+            <div class="rows">
+                <div class="row">
+                    <label class="label" for="twitter">twitter</label>
+                    <input id="twitter" type="text" pattern="/^[A-Za-z,]+$/" placeholder="Enter Your Skills" />
+                </div>
+
+                <div class="row">
+                    <label for="role">Select User Role</label><br/>
+                    <select  name="role" id="role">
+                        <option value="value">User Role</option>
+                        <option value="user">User</option>
+                        <option value="admin">admin</option>
+                    </select>
+                </div>
+            </div>
             <input type="submit" class="btn5 btn3" id="updateProfile" value="Update Record"/>
         </form>
     </main>

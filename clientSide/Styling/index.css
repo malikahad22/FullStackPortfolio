@@ -116,7 +116,6 @@
 }
 .img img {
   width: 60%;
-  height: 80%;
 }
 .about-me {
   width: 50%;
@@ -286,7 +285,6 @@
   color: #333333;
 }
 .eduSection{
-  height: 800px;
   width: 100%;
 justify-content: center;
   display: flex;

@@ -9,7 +9,7 @@
 .main{
     font-family: "Montserrat", sans-serif;
     width: 100%;
-    height: 100vh;
+    height:100vh;
     background: linear-gradient(to right, var(--blue), #00caac);
     display: flex;
     /* opacity: 0; */
@@ -48,7 +48,7 @@
     position: absolute;
     background: #00caac;
     padding: 30px 50px;
-    top: 30px;
+    top: -120px;
     left: 10%;
 }
 #updateEdu{
@@ -58,6 +58,7 @@
     padding: 30px 50px;
     position: absolute;
     top: 30px;
+    z-index: 1;
 }
 
 

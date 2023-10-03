@@ -177,18 +177,7 @@
   width: 100%;
   padding: 0px 50px;
 }
-.updateProfileForm{
-  height: 100vh;
-  width: 80%;
-  padding: 10px 0px;
-  border-radius: 10px;
-  position: absolute;
-  z-index: 1;
-  left: 0PX;
-  top: 0px;
-  display: none;
-  background: linear-gradient(to right,var(--blue),#00afb2);
-}
+
 .info input{
   width: 100%;
   height: 40px;
@@ -198,6 +187,18 @@
 }
 
 /* Update Profile */
+.updateProfileForm{
+  height: 100%;
+  width: 80%;
+  padding: 10px 0px;
+  border-radius: 10px;
+  position: absolute;
+  z-index: 1;
+  left: 0PX;
+  top: 300px;
+  display: none;
+  background: linear-gradient(to right,var(--blue),#00afb2);
+}
 
 .updateHeading{
   color:white;
@@ -210,4 +211,10 @@
   right: 30px;
   top: 30PX;
   cursor: pointer;
+}
+#role{
+  width: 100%;
+  height: 40px;
+  margin-top: 5px;
+  outline: none;
 }

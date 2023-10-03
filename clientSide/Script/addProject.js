@@ -23,9 +23,7 @@ handleImageUpload((imageUrl) => {
 
   console.log(imageUrl)
 });
-function addProject(){
-  
-}
+
 document.addEventListener('submit',(e)=> {
     e.preventDefault();
   
@@ -75,12 +73,13 @@ console.log(token);
             body: JSON.stringify(data)
         }).then((resp) => {
            if(resp.status === 401){
-              alert("Token Is Expire");
               localStorage.clear();
-              window.location.assign ('../../Pages/Login.html');
-          }
+              window.location.assign ('http://127.0.0.1:5501/clientSide/Pages/Login.html');
+            }
           else {
             alert("Project added successfully!");
+            window.location.assign ('http://127.0.0.1:5501/clientSide/Pages/index.html');
+
           }
         });
     }

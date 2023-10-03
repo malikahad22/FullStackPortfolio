@@ -13,14 +13,12 @@ let imageUrl;
 var user = {
     name: "",
     email: "",
-    number: "",
+    mobile: "",
     address: "",
     password: "",
     profileImage: "",
     title: "",
     about: "",
-    exp: [],
-    edu: [],
     skills: []
 }
 
@@ -48,42 +46,8 @@ function getImage(e) {
 
 function setValue(val) {
 
-    if (val === "exp") {
-
-        let company = document.getElementById("company").value;
-        let start = document.getElementById("start").value;
-        let end = document.getElementById("end").value;
-        let experience = {
-            company,
-            start,
-            end
-        };
-        user.exp.push(experience);
-        document.getElementById('company').value = "";
-        document.getElementById('start').value = "";
-        document.getElementById('end').value = "";
-    }
-    else if (val === "edu") {
-
-        let school = document.getElementById("edu").value;
-        let marks = document.getElementById("marks").value;
-        let complete = document.getElementById("complete").value;
-        let Degree = document.getElementById("degree").value;
-        let Edu = {
-            school,
-            marks,
-            complete,
-            Degree
-        };
-
-        user.edu.push(Edu)
-
-        document.getElementById("edu").value = "";
-        document.getElementById("marks").value = "";
-        document.getElementById("complete").value = "";
-        document.getElementById("degree").value = "";
-
-    } else if (val === "skill") {
+    
+if (val === "skill") {
         user.skills.push(document.getElementById("skill").value);
         document.getElementById("skill").value = "";
     } else {
@@ -100,14 +64,14 @@ document.getElementById('addUser').addEventListener('click', async (e) => {
     // Setting The Values of input Fields
     user.name = document.getElementById("Name").value;
     user.email = document.getElementById("email").value;
-    user.number = document.getElementById("number").value;
+    user.mobile = document.getElementById("number").value;
     user.password = document.getElementById("password").value;
     user.about = document.getElementById("about").value;
     user.address = document.getElementById("address").value;
     user.title = document.getElementById("title").value;
 
 
-    if (user.name === "" || user.email === "" || user.number === "" || user.password === "" || user.address === "") {
+    if (user.name === "" || user.email === "" || user.mobile === "" || user.password === "" || user.address === "") {
         alert("Please Fill all Fields");
 
     } else

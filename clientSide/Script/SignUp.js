@@ -3,14 +3,16 @@ var imageUrl;
 var user = {
   name: "",
   email: "",
-  number: "",
+  mobile: "",
   address: "",
   password: "",
+  github :"",
+  linkedin:"",
+  twitter:"",
   profileImage: "",
   title: "",
+  role:"",
   about: "",
-  exp: [],
-  edu: [],
   skills: []
 }
 
@@ -21,7 +23,6 @@ function getImage(e) {
     let fileReader = new FileReader();
     fileReader.onload = function () {
       imageUrl = fileReader.result;
-      console.log(imageUrl)
       user.profileImage = imageUrl;
     };
     fileReader.readAsDataURL(selectedFile);
@@ -30,48 +31,12 @@ function getImage(e) {
   }
 
 }
-console.log("Image", user);
 
 // Setting Eductation ,Experience and Skills Form Values
 
 function setValue(val) {
 
-  if (val === "exp") {
-
-    let company = document.getElementById("company").value;
-    let start = document.getElementById("start").value;
-    let end = document.getElementById("end").value;
-    let experience = {
-      company,
-      start,
-      end
-    };
-    user.exp.push(experience);
-    document.getElementById('company').value = "";
-    document.getElementById('start').value = "";
-    document.getElementById('end').value = "";
-  }
-  else if (val === "edu") {
-
-    let school = document.getElementById("edu").value;
-    let marks = document.getElementById("marks").value;
-    let complete = document.getElementById("complete").value;
-    let Degree = document.getElementById("degree").value;
-    let Edu = {
-      school,
-      marks,
-      complete,
-      Degree
-    };
-
-    user.edu.push(Edu)
-
-    document.getElementById("edu").value = "";
-    document.getElementById("marks").value = "";
-    document.getElementById("complete").value = "";
-    document.getElementById("degree").value = "";
-
-  } else if (val === "skill") {
+ if (val === "skill") {
     user.skills.push(document.getElementById("skill").value);
     document.getElementById("skill").value = "";
   } else {
@@ -97,20 +62,25 @@ document.getElementById('submitbtn').addEventListener('click', async () => {
   // Setting The Values of input Fields
   user.name = document.getElementById("name").value;
   user.email = document.getElementById("email").value;
-  user.number = document.getElementById("number").value;
+  user.mobile = document.getElementById("number").value;
   user.password = document.getElementById("password").value;
   user.about = document.getElementById("about").value;
   user.address = document.getElementById("address").value;
   user.title = document.getElementById("title").value;
+  user.role = document.getElementById("role").value;
+  user.linkedin = document.getElementById("linkedin").value;
+  user.twitter = document.getElementById("twitter").value;
+  user.github = document.getElementById("github").value;
 
 
 
 
-  if (user.name === "" || user.email === "" || user.number === "" || user.password === "" || user.address === "") {
+  if (user.name === "" || user.email === "" || user.mobile === "" || user.password === "" || user.address === "") {
     alert("Please Fill all Fields");
   } else
   // SignUp File
   {
+
     const res = await fetch("http://localhost:8000/signup", {
       method: "POST",
       headers: {
@@ -118,6 +88,10 @@ document.getElementById('submitbtn').addEventListener('click', async () => {
       },
       body: JSON.stringify(user)
     });
+
+    if(res.status === 400){
+      alert("Email Already in Use");
+    }
     window.location.assign("./Login.html");
   }
 
