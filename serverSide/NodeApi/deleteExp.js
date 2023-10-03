@@ -1,45 +1,41 @@
-const jwt = require("jsonwebtoken");
-const writeToFile = require("../Utils/write-to-file");
-
-const JWT_SECRET = "my-secret-id";
+const writeToSession = require("../Utils/writeToSession");
+const { tokenExpiry } = require("../Utils/sessionExp");
+const { con } = require("../config");
 module.exports = (req, resp) => {
 
-  const index = req.url.split('/')[2];
-  console.log('Index:', index);
+  const id = req.url.split('/')[2];
 
 
   const token = req.headers.authorization;
+  let decode = tokenExpiry(token);
 
-  if(!token){
-    resp.writeHead(401,{message:"Token Expired"});
-  }
-  
-  if (req.url === `/exp/${index}`) {
-    try {
-      let decode = jwt.verify(token,JWT_SECRET);
+  try {
+    if (!decode) {
+      console.log("Token is Expire");
+      writeToSession(token)
+      resp.writeHead(401, { "Content-Type": "application/json" });
+      resp.end(JSON.stringify('Token is Expire'));
 
-      let user = req.users.find((user)=>{
-        return user.id === decode.userId;
-      })
-
-     if(user){
-
-      user.exp.splice(index,1);
-      writeToFile(req.users);
-      resp.writeHead(200, { 'Content-Type': 'application/json' });
-
-      resp.end(JSON.stringify({ message: 'Request successful',user }));
-     }
-
-      
-    } catch (err) {
-      console.error('Error:', err);
-
-      resp.writeHead(500, { 'Content-Type': 'application/json' });
-      resp.end(JSON.stringify({ error: 'Internal server error' }));
     }
-  } else {
-    resp.writeHead(404, { 'Content-Type': 'application/json' });
-    resp.end(JSON.stringify({ error: 'Not Found' }));
+    else {
+      let sql = `DELETE from experience where id = ${id}`;
+      con.query(sql, (err, result) => {
+        if (err) {
+          console.error(err);
+          resp.writeHead(500, { "Content-Type": "application/json" });
+          resp.end(JSON.stringify({ title: "Internal Server Error", message: "Error Updating user to the database" }));
+        }
+        else {
+          resp.writeHead(200, { 'Content-Type': 'application/json' });
+          resp.end(JSON.stringify({ message: 'Request successful', result }));
+        }
+
+      })
+    }
+  } catch (err) {
+    console.error('Error:', err);
+
+    resp.writeHead(500, { 'Content-Type': 'application/json' });
+    resp.end(JSON.stringify({ error: 'Internal server error' }));
   }
 };

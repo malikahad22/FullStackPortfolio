@@ -1,37 +1,31 @@
-const writeToFile = require("../Utils/write-to-file");
-
+const { con } = require('../config');
 module.exports = (req, resp) => {
 
   let id = req.url.split('/')[2];
+ console.log(id)
 
-  if(req.url ===`/users/${id}`){
 
-    const filteredUser = req.users.findIndex((user) => {
-      return user.id == id;
-    });
-  
-    if (filteredUser === -1) {
-      resp.statusCode = 404;
-      resp.write(
-        JSON.stringify({ title: "Not Found", message: "User not found" })
-      );
-      resp.end();
-    } 
-    else 
-    {
-      req.users.splice(filteredUser, 1);
-      writeToFile(req.users);
-      resp.writeHead(204, { "Content-Type": "application/json" });
-      resp.end(JSON.stringify(req.users));
-    }
+  try {
+    let sql = `
+   DELETE FROM users WHERE id = ${id};
+      `;
+    con.query(sql, (err, result) => {
+      if (err) {
+        console.log(err)
+        resp.writeHead(500, { "Content-Type": "application/json" });
+        resp.end(JSON.stringify(({ title: "Internal Server Error", message: "Error adding user to the database" })));
+      }
+      else {
+        console.log(result)
+        resp.writeHead(200, { "Content-Type": "application/json" });
+        resp.end(JSON.stringify(result));
+      }
+    })
   }
-
-  else
-  {
-    resp.writeHead(404,{'Content-Type':'application/json'});
-    resp.write(JSON.stringify({message:'404 Page'}));
+  catch (err) {
+    resp.writeHead(500, { 'Content-Type': 'application/json' });
+    resp.write(JSON.stringify({ message: 'INTERNAL SERVER ERROR' }));
     resp.end();
   }
 
-  
 }

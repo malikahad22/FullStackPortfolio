@@ -1,27 +1,12 @@
-const fs = require("fs");
-const path = require("path");
-
-function tokenExpiry(data, token) {
-  const tokenIndex = data.findIndex((user) => {
-    try {
-      return user.token === token;
-    } catch (err) {
-      console.log(err);
-      return false;
-    }
-  });
-
-  if (tokenIndex !== -1) {
-    data.splice(tokenIndex, 1);
-    fs.writeFileSync(path.join(__dirname, "../session.json"), JSON.stringify(data, null, 2));
-  } else {
-    console.log('Index Not Found');
+const JWT_SECRET = "my-secret-id";
+const jwt = require('jsonwebtoken');
+function tokenExpiry(token) {
+  try {
+    const decoded = jwt.verify(token, JWT_SECRET);
+    return decoded;
+  } catch (err) {
+    return null; // Token is invalid or expired
   }
-
-  return {
-    statusCode: 401,
-    message: "Token is Expired",
-  };
 }
 
 module.exports = { tokenExpiry };

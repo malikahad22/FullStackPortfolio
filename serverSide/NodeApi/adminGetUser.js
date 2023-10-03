@@ -1,0 +1,46 @@
+const { tokenExpiry } = require('../Utils/sessionExp');
+const {con} = require('../config');
+module.exports = (req, resp) => {
+  let token = req.headers.authorization;
+
+  try {
+    let decode = tokenExpiry(token);
+    if (!decode) {
+      console.log("Token is Expire");
+      resp.writeHead(401, { "Content-Type": "application/json" });
+      resp.end(JSON.stringify({ message: "Token is invalid or expired" }));
+
+      let sql = `DELETE FROM sessionrecord where token = '${token}'`;
+      con.query(sql,(err,result)=>{
+        if(err){
+          console.log(err);
+        }
+        else 
+        {
+          console.log("Record deleted successfully"+result);
+        }
+      });
+
+     
+    }
+
+
+    let sql = "select * from users";
+    con.query(sql, (err, result) => {
+      if (err) {
+        console.error(err);
+        resp.writeHead(500, { "Content-Type": "application/json" });
+        resp.end(JSON.stringify({ title: "Internal Server Error", message: "Error adding user to the database" }));
+      }
+      else {
+        resp.writeHead(200, { "Content-Type": "application/json" });
+        resp.end(JSON.stringify(result));
+      }
+    })
+  }
+  catch (err) {
+    console.error(err);
+    resp.writeHead(400, { "Content-Type": "application/json" });
+    resp.end(JSON.stringify({ title: "Bad Request", message: "Request Body is not Valid!" }));
+  }
+}

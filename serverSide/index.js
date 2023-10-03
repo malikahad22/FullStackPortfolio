@@ -1,7 +1,8 @@
 const http = require("http");
-const cors = require("cors")
+const cors = require("cors");
 let users = require("./db.json");
 let projects = require('./projects.json');
+
 
 const signUp = require("./NodeApi/signUp");
 const logInReq = require("./NodeApi/logInReq");
@@ -11,23 +12,29 @@ const addUser = require('./NodeApi/addUser');
 const delUser = require("./NodeApi/delUser");
 const getUser = require("./NodeApi/getUser");
 const updateUser = require("./NodeApi/updateUser");
+const adminGetUser = require('./NodeApi/adminGetUser');
+
 
 const getProjects = require('./NodeApi/getProjects');
 const addProject = require("./NodeApi/addProject");
 const delProject = require("./NodeApi/delProject");
 const updateProject = require('./NodeApi/updatePRoject');
+const adminGetProjects = require('./NodeApi/adminGetProjects');
 
 const addExperiece = require('./NodeApi/addExperience');
 const delExp = require("./NodeApi/deleteExp");
 const updateExp = require("./NodeApi/updateExp");
+const getExperience = require("./NodeApi/getExperience");
+
 
 const addEducation = require("./NodeApi/addEducation");
 const delEdu = require("./NodeApi/delEdu");
 const updateEdu = require("./NodeApi/updateEdu");
+const getEducation = require("./NodeApi/getEducation");
+var {con} = require('./config');
 const LogOut = require("./NodeApi/LogOut");
 
-http.createServer((req, resp) => {
-
+http.createServer((req, resp,con) => {
 
   cors()(req, resp, () => {
     let id = req.url.split("/")[2];
@@ -37,21 +44,20 @@ http.createServer((req, resp) => {
 
     if (req.url === '/login') {  //USERS
       if (req.method === "POST") {
-        logInReq(req, resp);
+        logInReq(req, resp,con);
       }
     }
     else if (req.url === '/signup'){
       if(req.method === 'POST'){
-        signUp(req,resp);
-
+        signUp(req,resp,con);
       }
     }
     else if(req.url === '/users'){
       if(req.method === 'GET'){
-        getUser(req,resp);
+        getUser(req,resp,con);
       }
       else if (req.method === "POST"){
-          addUser(req,resp);
+          addUser(req,resp,con);
       }
       else {
 
@@ -93,7 +99,13 @@ http.createServer((req, resp) => {
       if (req.method === "POST") {
         addEducation(req, resp);
       }
-    }
+      else if(req.method === 'GET'){
+      getEducation(req,resp);
+      }
+      else {
+        console.log("not Found")
+      }
+    }  
     else if (req.url === `/edu/${id}`) {
       if (req.method === "DELETE") {
       delEdu(req, resp);
@@ -110,6 +122,13 @@ http.createServer((req, resp) => {
       if (req.method === "POST") {
         addExperiece(req, resp);
       }
+      else if(req.method === 'GET'){
+        getExperience(req,resp);
+
+      }
+      else {
+        console.log("Not Found")
+      }
     }
     else if (req.url === `/exp/${id}`) {
       if (req.method === "DELETE") {
@@ -125,6 +144,16 @@ http.createServer((req, resp) => {
     else if (req.url === '/logout'){
       if(req.method === 'POST'){
         LogOut(req,resp);
+      }
+    }
+    else if(req.url === '/admin/users'){
+      if(req.method === "GET"){
+        adminGetUser(req,resp);
+      }
+    }
+    else if(req.url === '/admin/projects'){
+      if(req.method === "GET"){
+        adminGetProjects(req,resp);
       }
     }
     else {

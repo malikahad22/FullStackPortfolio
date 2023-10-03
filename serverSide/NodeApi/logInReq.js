@@ -1,65 +1,89 @@
-const bodyParser = require('../Utils/bodyParser');
-const jwt = require('jsonwebtoken');
-const fs = require('fs');
-const path = require('path');
-const users = require('../db.json');
-const userSessions = require('../session.json');
+const bodyParser = require("../Utils/bodyParser");
+const jwt = require("jsonwebtoken");
+const { con } = require("../config");
+
 module.exports = async (req, resp) => {
-  if (req.url === '/login') {
-    try {
-      const user = await bodyParser(req);
-      const data = req.users;
-      if (! user.email || ! user.password) {
-        resp.writeHead(400, {'Content-Type': 'application/json'});
-        resp.end(JSON.stringify({message: 'All fields must be filled'}));
+  try {
+    const user = await bodyParser(req);
+
+    if (!user.email || !user.password) {
+      resp.writeHead(400, { "Content-Type": "application/json" });
+      resp.end(JSON.stringify({ message: "All fields must be filled" }));
+      return;
+    }
+
+    // Initialize USERID and token
+    let USERID;
+    let token;
+
+    // Perform the user query
+    let sql = "SELECT * FROM users";
+    con.query(sql, async (err, result) => {
+      if (err) {
+        console.log("Error:", err);
         return;
       }
-    
-      const foundUser = users.find((u) => {
 
-        if (u.email == user.email && u.password == user.password) {
-          return u;
-        }
+      // Find the user
+      const foundUser = result.find(
+        (u) => u.email == user.email && u.password == user.password
+      );
 
-
-      });
       if (foundUser) {
-        let user_id = foundUser.id;
-
-        const token = jwt.sign({
-          userId: foundUser.id,
-          role: foundUser.role
-        }, "my-secret-id",{expiresIn:'30s'} );
-
-        let sessionInfo = {user_id,token};
-
-        if(sessionInfo)
-        {
-        userSessions.push(sessionInfo);
-
-        fs.writeFileSync(
-          path.join(__dirname, "../session.json"),
-          JSON.stringify(userSessions),
-          "utf-8"
+        USERID = foundUser.id;
+        token = jwt.sign(
+          {
+            userId: foundUser.id,
+            role: foundUser.userStatus,
+          },
+          "my-secret-id",
+          { expiresIn: "50h" }
         );
-       
-        }
 
-        resp.writeHead(200, {'Content-Type': 'application/json'});
-
-        if (foundUser.role === 'admin') {
-          resp.end(JSON.stringify({message: 'Admin', token,foundUser}));
+        if (foundUser.userStatus == "admin") {
+          resp.writeHead(200, { "Content-Type": "application/json" });
+          resp.end(JSON.stringify({ message: "Admin", token, foundUser }));
         } else {
-          resp.end(JSON.stringify({message: 'User Login Successful', token,foundUser}));
+          resp.writeHead(200, { "Content-Type": "application/json" });
+          resp.end(
+            JSON.stringify({
+              message: "User",
+              token,
+              foundUser,
+            })
+          );
         }
       } else {
-        resp.writeHead(401, {'Content-Type': 'application/json'});
-        resp.end(JSON.stringify({message: 'Login unsuccessful - Invalid credentials'}));
+        resp.writeHead(401, { "Content-Type": "application/json" });
+        resp.end(
+          JSON.stringify({
+            message: "Login unsuccessful - Invalid credentials",
+          })
+        );
       }
-    } catch (err) {
-      console.error(err);
-      resp.writeHead(500, {'Content-Type': 'application/json'});
-      resp.end(JSON.stringify({message: 'Internal Server Error'}));
-    }
+
+      // Once USERID and token have been set, insert into sessionrecord
+      if (USERID && token) {
+        try {
+          let SQL = `INSERT INTO sessionrecord (userId, token) VALUES (${USERID}, '${token}')`;
+          await new Promise((resolve, reject) => {
+            con.query(SQL, (err, result) => {
+              if (err) {
+                reject(err);
+              } else {
+                resolve(result);
+              }
+            });
+          });
+          console.log("Session record inserted:", USERID, token);
+        } catch (error) {
+          console.error("Error inserting session record:", error);
+        }
+      }
+    });
+  } catch (err) {
+    console.error(err);
+    resp.writeHead(500, { "Content-Type": "application/json" });
+    resp.end(JSON.stringify({ message: "Internal Server Error" }));
   }
 };
